@@ -1,12 +1,13 @@
 package tests;
 
 import com.codeborne.selenide.Configuration;
-import org.junit.jupiter.api.AfterAll;
+
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 
 import java.io.File;
 
+import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.Selectors.byText;
 import static com.codeborne.selenide.Selenide.*;
 import static com.codeborne.selenide.Selenide.open;
@@ -63,7 +64,7 @@ public class TestForm {
 
         $(byText(hobbies)).click();
 
-        $("#uploadPicture").uploadFile(new File("cat.jpeg"));
+        $("[id=uploadPicture]").uploadFile(new File("cat.jpeg"));
 
         $("[id=currentAddress]").setValue(currentAddress);
 
@@ -75,5 +76,16 @@ public class TestForm {
 
         $("[id=submit]").click();
 
+        $(".modal-body").shouldHave(
+                text(firstName + " " + lastName),
+                text(userEmail),
+                text(gender),
+                text(phoneNumber),
+                text(day + " " + month + "," + year),
+                text(subject),
+                text(hobbies),
+                text("cat.jpeg"),
+                text(currentAddress),
+                text(String.join(" " ,state, city)));
     }
 }
