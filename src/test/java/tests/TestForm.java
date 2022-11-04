@@ -77,15 +77,16 @@ public class TestForm {
         $("[id=submit]").click();
 
         $(".modal-body").shouldHave(
-                text(firstName + " " + lastName),
+                text(String.join(" " ,firstName, lastName)),
                 text(userEmail),
                 text(gender),
                 text(phoneNumber),
-                text(day + " " + month + "," + year),
+                text(String.join(" ", day, (String.join(",",month,year )))),
                 text(subject),
                 text(hobbies),
                 text("cat.jpeg"),
                 text(currentAddress),
-                text(String.join(" " ,state, city)));
+                text(String.join(" " ,state, city))
+        );
     }
 }
