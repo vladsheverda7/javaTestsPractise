@@ -13,7 +13,7 @@ import static com.codeborne.selenide.Selenide.open;
 public class SelectorPractise {
 
     String noItems = "You have no items in your shopping cart";
-    String areYouSure = "Are you sure you would like to remove this item from the shopping cart?";
+    String areYouSureQuestion = "Are you sure you would like to remove this item from the shopping cart?";
 
     @BeforeAll
     static void beforeAll() {
@@ -39,12 +39,8 @@ public class SelectorPractise {
         $(By.xpath("//a[@class='action showcart']")).click();
         $(By.xpath("//div[@class='minicart-items-wrapper']")).should(appear);
         $(By.xpath("//div[@class='minicart-items-wrapper']//a[@class='action delete']")).click();
-
-        // $(By.xpath("//div[@class='modal-inner-wrap']")).shouldHave(text(areYouSure));
-
+        $(By.xpath("(//div[@class='modal-content'])[last()]")).shouldHave(text(areYouSureQuestion));
         $(By.xpath("//button/span[text()='OK']")).click();
-
         $(By.xpath("//div[@id='minicart-content-wrapper']/div[@class='block-content']/strong[@class='subtitle empty']")).shouldHave(text(noItems));
-
     }
 }
