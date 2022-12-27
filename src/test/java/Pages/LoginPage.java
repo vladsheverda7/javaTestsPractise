@@ -8,10 +8,25 @@ public class LoginPage  {
     private SelenideElement emailField = $("[id=email]");;
     private SelenideElement passwordField = $("[id=pass]");
     private SelenideElement signInButton = $("[id=send2]");
+    private SelenideElement headerLink = $(".customer-welcome");
+    private SelenideElement signOut = $(".authorization-link");
 
-    public void loginAsUser (String username, String password) {
+
+    public void enterUserName(String username){
         emailField.setValue(username);
+    }
+
+    public void enterPassword(String password) {
         passwordField.setValue(password);
+    }
+
+    public void clickSignInButton(){
         signInButton.click();
+    }
+
+
+    public void userSignOut(){
+        headerLink.click();
+        signOut.click();
     }
 }

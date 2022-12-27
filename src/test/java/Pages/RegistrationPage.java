@@ -17,12 +17,23 @@ public class RegistrationPage extends BasePage {
         super(pageUrl);
     }
 
-    public void registerAsUser (String firstName, String lastName, String email,
-                                String password) {
+    public void enterFirstName(String firstName) {
         firstNameField.setValue(firstName);
+    }
+
+    public void enterLastName(String lastName) {
         lastNameField.setValue(lastName);
+    }
+
+    public void enterEmail(String email) {
         emailField.setValue(email);
+    }
+
+    public void enterPassword(String password) {
         passwordField.setValue(password);
+    }
+
+    public void enterPasswordConfirmation(String password) {
         confirmPasswordField.setValue(password);
     }
 
