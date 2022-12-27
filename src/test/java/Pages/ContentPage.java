@@ -10,6 +10,7 @@ public class ContentPage {
 
     String noItems = "You have no items in your shopping cart";
     String areYouSureQuestion = "Are you sure you would like to remove this item from the shopping cart?";
+
     private SelenideElement menNavigation = $(By.xpath("//nav[@class='navigation']//span[text() = 'Men']"));
     private SelenideElement topsNavigation = $(By.xpath("//div[@class='sidebar sidebar-main']//*[text() = 'Tops']"));
     private SelenideElement styleNavigation = $(By.xpath("//div[@class='filter-options']//*[text() = 'Style']"));
@@ -17,7 +18,6 @@ public class ContentPage {
     private SelenideElement listViewButton = $("[id=mode-list]");
     private SelenideElement sortedButton = $("[id=sorter]");
     private SelenideElement priceFilter =  $(By.xpath("//option[@value='price']"));
-
     private SelenideElement counterQty = $(By.xpath("//span[@class='counter qty']"));
     private SelenideElement showCartButton = $(By.xpath("//a[@class='action showcart']"));
     private SelenideElement miniCart = $(By.xpath("//div[@class='minicart-items-wrapper']"));
@@ -59,10 +59,9 @@ public class ContentPage {
 
     public void removeMessageAppears() {modalRemovingConfirmation.shouldHave(text(noItems));}
 
-
-    public void addItemToCart(int itemNumber){
-        $(By.xpath(("//ol[@class='products list items product-items']/li" + "[" + itemNumber +"]" + "//div[text() = 'M']"))).click();
-        $(By.xpath(("//ol[@class='products list items product-items']/li" + "[" + itemNumber +"]" + "//div[@aria-label='Color']/div[@option-label='Yellow']"))).click();
+    public void addItemToCart(int itemNumber,  String size, String color){
+        $(By.xpath(("//ol[@class='products list items product-items']/li" + "[" + itemNumber +"]" + "//div[text() = '" + size + "']"))).click();
+        $(By.xpath(("//ol[@class='products list items product-items']/li" + "[" + itemNumber +"]" + "//div[@aria-label='Color']/div[@option-label='" + color + "']"))).click();
         $(By.xpath(("//ol[@class='products list items product-items']/li" + "[" + itemNumber +"]" + "//button[@title='Add to Cart']"))).click();
     }
 }

@@ -1,4 +1,6 @@
 {
+  "userFirstName": "vs_firstName1",
+  "userLastName": "vs_lastName1",
   "email": "vs_testUser1@gmail.com",
   "password": "vs_passWord1!"
 }

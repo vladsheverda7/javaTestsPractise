@@ -25,9 +25,7 @@ public class AddingRemovingItemTest {
     void FirstFlow() {
         mainPage.Open();
         mainPage.ClickLoginButton();
-        loginPage.enterUserName(userInfo.ReturnEmail());
-        loginPage.enterPassword(userInfo.ReturnPassword());
-        loginPage.clickSignInButton();
+        loginPage.loginAsUser(userInfo.returnEmail(), userInfo.returnPassword());
 
         contentPage.clickNav();
         contentPage.clickTopNav();
@@ -36,7 +34,7 @@ public class AddingRemovingItemTest {
         contentPage.openItemsListView();
         contentPage.clickSortedMenu();
         contentPage.selectFilterByPrice();
-        contentPage.addItemToCart(1);
+        contentPage.addItemToCart(1,"M", "Yellow");
         contentPage.checkCartCounter();
         contentPage.clickShowCartButton();
         contentPage.checkMiniCartOpened();
@@ -45,6 +43,31 @@ public class AddingRemovingItemTest {
         contentPage.clickOkButton();
         contentPage.removeMessageAppears();
 
-        loginPage.userSignOut();
+        loginPage.logOut();
+    }
+
+    @Test
+    void SecondFlow() {
+        mainPage.Open();
+        mainPage.ClickLoginButton();
+        loginPage.loginAsUser(userInfo.returnEmail(), userInfo.returnPassword());
+
+        contentPage.clickNav();
+        contentPage.clickTopNav();
+        contentPage.clickStyleNav();
+        contentPage.clickRainCoat();
+        contentPage.openItemsListView();
+        contentPage.clickSortedMenu();
+        contentPage.selectFilterByPrice();
+        contentPage.addItemToCart(2, "S", "Red" );
+        contentPage.checkCartCounter();
+        contentPage.clickShowCartButton();
+        contentPage.checkMiniCartOpened();
+        contentPage.clickDeleteButton();
+        contentPage.confirmationMessageAppears();
+        contentPage.clickOkButton();
+        contentPage.removeMessageAppears();
+
+        loginPage.logOut();
     }
 }

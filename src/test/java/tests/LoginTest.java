@@ -22,8 +22,6 @@ public class LoginTest {
     void LoginFlow() {
         mainPage.Open();
         mainPage.ClickLoginButton();
-        loginPage.enterUserName(userInfo.ReturnEmail());
-        loginPage.enterPassword(userInfo.ReturnPassword());
-        loginPage.clickSignInButton();
+        loginPage.loginAsUser(userInfo.returnEmail(), userInfo.returnPassword());
     }
 }

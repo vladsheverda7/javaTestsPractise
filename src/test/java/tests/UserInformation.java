@@ -20,15 +20,19 @@ public class UserInformation {
         }
     }
     JSONObject jo = (JSONObject) obj;
-    public String ReturnEmail(){
+    public String returnEmail(){
         return (String) jo.get("email");
     }
 
-    public String ReturnPassword(){
+    public String returnPassword(){
         return (String) jo.get("password");
     }
 
-    public String GenerateRandomEmail(){
+    public String returnFirstName() {return (String) jo.get("userFirstName");}
+
+    public String returnLastName() {return (String) jo.get("userFirstName");}
+
+    public String generateRandomEmail(){
         Random randomGenerator = new Random();
         int randomInt = randomGenerator.nextInt(1000);
         return "username"+ randomInt +"@gmail.com";

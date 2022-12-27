@@ -12,8 +12,7 @@ public class MainPage extends BasePage {
         super(pageUrl);
     }
 
-    public LoginPage ClickLoginButton() {
+    public void ClickLoginButton() {
         signInButton.click();
-        return new LoginPage();
     }
 }
