@@ -1,9 +1,11 @@
 package tests;
 
+import Pages.CustomerInfoPage;
 import Pages.LoginPage;
 import Pages.MainPage;
 import com.codeborne.selenide.Configuration;
 
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 
@@ -23,5 +25,7 @@ public class LoginTest {
         mainPage.Open();
         mainPage.ClickLoginButton();
         loginPage.loginAsUser(userInfo.getEmail(), userInfo.getPassword());
+        Assertions.assertEquals(loginPage.getWelcomeMessage(),
+                "Welcome, " + userInfo.getFullName() + "!");
     }
 }

@@ -30,7 +30,9 @@ public class UserInformation {
 
     public String getFirstName() {return (String) jo.get("userFirstName");}
 
-    public String getLastName() {return (String) jo.get("userFirstName");}
+    public String getLastName() {return (String) jo.get("userLastName");}
+
+    public String getFullName() {return jo.get("userFirstName") + " " + jo.get("userLastName");}
 
     public String generateRandomEmail(){
         Random randomGenerator = new Random();

@@ -5,6 +5,7 @@ import Pages.RegistrationPage;
 
 import com.codeborne.selenide.Configuration;
 
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 
@@ -30,6 +31,6 @@ public class RegistrationTest {
         registrationPage.enterPasswordConfirmation(userInfo.getPassword());
 
         CustomerInfoPage customerInfo = registrationPage.OpenCustomerAccount();
-        customerInfo.VerifyPageTitle("My Account");
+        Assertions.assertEquals(customerInfo.getPageTitle(), "My Account");
     }
 }

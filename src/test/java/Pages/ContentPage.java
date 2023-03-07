@@ -18,7 +18,10 @@ public class ContentPage {
     private SelenideElement listViewButton = $("[id=mode-list]");
     private SelenideElement sortedButton = $("[id=sorter]");
     private SelenideElement priceFilter =  $(By.xpath("//option[@value='price']"));
+
     private SelenideElement counterQty = $(By.xpath("//span[@class='counter qty']"));
+    private SelenideElement itemQty = $(By.xpath("//span[@class='counter-number']"));
+
     private SelenideElement showCartButton = $(By.xpath("//a[@class='action showcart']"));
     private SelenideElement miniCart = $(By.xpath("//div[@class='minicart-items-wrapper']"));
     private SelenideElement deleteButton = $(By.xpath("//div[@class='minicart-items-wrapper']//a[@class='action delete']"));
@@ -46,6 +49,10 @@ public class ContentPage {
     public void selectFilterByPrice() {priceFilter.click();}
 
     public void checkCartCounter() {counterQty.should(appear);}
+
+    public String getItemQtyInCart(){
+        return itemQty.text();
+    }
 
     public void clickShowCartButton() {showCartButton.click();}
 
