@@ -41,7 +41,7 @@ public class MainPage extends BasePage {
     private SelenideElement okButton = $(By.xpath("//button/span[text()='OK']"));
     private SelenideElement modalRemovingConfirmation = $(By.xpath("//div[@id='minicart-content-wrapper']/div[@class='block-content']/strong[@class='subtitle empty']"));
 
-    public void clickLoginButton() {
+    public void clickSignIn() {
         signInButton.click();
     }
 

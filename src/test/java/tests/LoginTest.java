@@ -9,12 +9,16 @@ import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 
+import java.io.FileInputStream;
+import java.io.IOException;
+import java.util.logging.LogManager;
+import java.util.logging.Logger;
+
 public class LoginTest {
 
     LoginPage loginPage = new LoginPage("https://magento.softwaretestingboard.com/customer/account/login");
     MainPage mainPage = new MainPage("https://magento.softwaretestingboard.com/");
     UserInformation userInfo = new UserInformation();
-
 
     @BeforeAll
     static void beforeAll() {
@@ -22,11 +26,25 @@ public class LoginTest {
     }
 
     @Test
-    void LoginFlow() {
+    void LoginFlow() throws  IOException {
+
+        try {
+            FileInputStream fis = new FileInputStream("src/test/resources/log.properties");
+            LogManager.getLogManager().readConfiguration(fis);
+            fis.close();
+        } catch(IOException e) {
+            e.printStackTrace();
+        }
+
+        Logger logger = Logger.getLogger(LoginTest.class.getName());
+        logger.info("Login flow test started");
         mainPage.open();
-        mainPage.clickLoginButton();
+        logger.warning("Clicking SignIn button");
+        mainPage.clickSignIn();
+        logger.warning("Logging in as a user");
         loginPage.loginAsUser(userInfo.getEmail(), userInfo.getPassword());
         Assertions.assertEquals("Welcome, " + userInfo.getFullName() + "!",
                 mainPage.getWelcomeMessage());
+        logger.info("Login flow test completed");
     }
 }
