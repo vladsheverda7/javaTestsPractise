@@ -2,6 +2,9 @@ package tests;
 
 import com.codeborne.selenide.Configuration;
 
+import io.qameta.allure.Severity;
+import io.qameta.allure.SeverityLevel;
+import io.qameta.allure.Story;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 import org.openqa.selenium.By;
@@ -21,6 +24,8 @@ public class SelectorPractise {
         Configuration.holdBrowserOpen = true;
     }
 
+    @Story("Practise with selectors")
+    @Severity(SeverityLevel.NORMAL)
     @Test
     void cartFlow() {
         open("https://magento.softwaretestingboard.com");

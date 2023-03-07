@@ -6,6 +6,9 @@ import Pages.RegistrationPage;
 import Utilities.UserInformation.UserInformation;
 import com.codeborne.selenide.Configuration;
 
+import io.qameta.allure.Severity;
+import io.qameta.allure.SeverityLevel;
+import io.qameta.allure.Story;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
@@ -21,6 +24,8 @@ public class RegistrationTest {
         Configuration.browserSize = "1920x1080";
     }
 
+    @Story("Check user registration")
+    @Severity(SeverityLevel.NORMAL)
     @Test
     void RegistrationFlow() {
         registrationPage.open();

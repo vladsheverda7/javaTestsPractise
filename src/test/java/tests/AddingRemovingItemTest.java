@@ -5,6 +5,9 @@ import Pages.MainPage;
 import Utilities.UserInformation.UserInformation;
 import com.codeborne.selenide.Configuration;
 
+import io.qameta.allure.Severity;
+import io.qameta.allure.SeverityLevel;
+import io.qameta.allure.Story;
 import org.assertj.core.api.SoftAssertions;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
@@ -25,6 +28,8 @@ public class AddingRemovingItemTest {
         Configuration.browserSize = "1920x1080";
     }
 
+    @Story("Check adding/removal first item to cart")
+    @Severity(SeverityLevel.CRITICAL)
     @Test
     void FirstFlow() throws  IOException {
         try {
@@ -86,6 +91,8 @@ public class AddingRemovingItemTest {
         logger.info("Adding and removing flow test completed");
     }
 
+    @Story("Check adding/removal second item to cart")
+    @Severity(SeverityLevel.CRITICAL)
     @Test
     void SecondFlow() {
         SoftAssertions softAssertions = new SoftAssertions();

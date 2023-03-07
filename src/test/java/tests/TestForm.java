@@ -2,6 +2,9 @@ package tests;
 
 import com.codeborne.selenide.Configuration;
 
+import io.qameta.allure.Severity;
+import io.qameta.allure.SeverityLevel;
+import io.qameta.allure.Story;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 
@@ -40,6 +43,8 @@ public class TestForm {
         Configuration.browserSize = "1920x1080";
     }
 
+    @Story("Test Form filling")
+    @Severity(SeverityLevel.MINOR)
     @Test
     void studentRegistration() {
         open("/automation-practice-form");

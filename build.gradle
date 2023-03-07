@@ -2,6 +2,10 @@ plugins {
     id 'java-library'
 }
 
+plugins {
+    id 'io.qameta.allure' version '2.9.6'
+}
+
 repositories {
     mavenCentral()
 }
@@ -9,10 +13,16 @@ dependencies {
     testImplementation(
             "com.codeborne:selenide:6.9.0",
             "org.junit.jupiter:junit-jupiter:5.9.0",
-            "org.assertj:assertj-core:3.21.0"
+            "org.assertj:assertj-core:3.21.0",
+            "io.qameta.allure:allure-junit5:2.21.0",
+            "ru.yandex.qatools.allure:allure-java-annotations:1.5.4"
     )
 
-    implementation group: 'com.googlecode.json-simple', name: 'json-simple', version: '1.1.1'
+    implementation(
+            group: 'com.googlecode.json-simple', name: 'json-simple', version: '1.1.1',
+            "io.qameta.allure:allure-selenide:2.21.0",
+            "io.qameta.allure:allure-okhttp3:2.21.0"
+    )
 }
 
 tasks.withType(Test) {
