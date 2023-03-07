@@ -18,14 +18,13 @@ public class AddingRemovingItemTest {
     @BeforeAll
     static void beforeAll() {
         Configuration.browserSize = "1920x1080";
-        Configuration.holdBrowserOpen = true;
     }
 
     @Test
     void FirstFlow() {
         mainPage.Open();
         mainPage.ClickLoginButton();
-        loginPage.loginAsUser(userInfo.returnEmail(), userInfo.returnPassword());
+        loginPage.loginAsUser(userInfo.getEmail(), userInfo.getPassword());
 
         contentPage.clickNav();
         contentPage.clickTopNav();
@@ -50,7 +49,7 @@ public class AddingRemovingItemTest {
     void SecondFlow() {
         mainPage.Open();
         mainPage.ClickLoginButton();
-        loginPage.loginAsUser(userInfo.returnEmail(), userInfo.returnPassword());
+        loginPage.loginAsUser(userInfo.getEmail(), userInfo.getPassword());
 
         contentPage.clickNav();
         contentPage.clickTopNav();

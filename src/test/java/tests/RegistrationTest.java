@@ -23,11 +23,11 @@ public class RegistrationTest {
     void RegistrationFlow() {
         registrationPage.Open();
 
-        registrationPage.enterFirstName(userInfo.returnFirstName());
-        registrationPage.enterLastName(userInfo.returnLastName());
+        registrationPage.enterFirstName(userInfo.getFirstName());
+        registrationPage.enterLastName(userInfo.getLastName());
         registrationPage.enterEmail(userInfo.generateRandomEmail());
-        registrationPage.enterPassword(userInfo.returnPassword());
-        registrationPage.enterPasswordConfirmation(userInfo.returnPassword());
+        registrationPage.enterPassword(userInfo.getPassword());
+        registrationPage.enterPasswordConfirmation(userInfo.getPassword());
 
         CustomerInfoPage customerInfo = registrationPage.OpenCustomerAccount();
         customerInfo.VerifyPageTitle("My Account");
