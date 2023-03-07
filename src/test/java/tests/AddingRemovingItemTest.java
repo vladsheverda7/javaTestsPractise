@@ -1,8 +1,8 @@
 package tests;
 
-import Pages.ContentPage;
 import Pages.LoginPage;
 import Pages.MainPage;
+import Utilities.UserInformation.UserInformation;
 import com.codeborne.selenide.Configuration;
 
 import org.assertj.core.api.SoftAssertions;
@@ -11,10 +11,9 @@ import org.junit.jupiter.api.Test;
 
 public class AddingRemovingItemTest {
 
-    LoginPage loginPage = new LoginPage();
-    UserInformation userInfo = new UserInformation();
+    LoginPage loginPage = new LoginPage("https://magento.softwaretestingboard.com/customer/account/login");
     MainPage mainPage = new MainPage("https://magento.softwaretestingboard.com/");
-    ContentPage contentPage = new ContentPage();
+    UserInformation userInfo = new UserInformation();
 
     @BeforeAll
     static void beforeAll() {
@@ -24,60 +23,60 @@ public class AddingRemovingItemTest {
     @Test
     void FirstFlow() {
         SoftAssertions softAssertions = new SoftAssertions();
-        mainPage.Open();
-        mainPage.ClickLoginButton();
+        mainPage.open();
+        mainPage.clickLoginButton();
         loginPage.loginAsUser(userInfo.getEmail(), userInfo.getPassword());
 
-        contentPage.clickNav();
-        contentPage.clickTopNav();
-        contentPage.clickStyleNav();
-        contentPage.clickRainCoat();
-        contentPage.openItemsListView();
-        contentPage.clickSortedMenu();
-        contentPage.selectFilterByPrice();
-        contentPage.addItemToCart(1,"M", "Yellow");
+        mainPage.clickNav();
+        mainPage.clickTopNav();
+        mainPage.clickStyleNav();
+        mainPage.clickRainCoat();
+        mainPage.openItemsListView();
+        mainPage.clickSortedMenu();
+        mainPage.selectFilterByPrice();
+        mainPage.addItemToCart(1,"M", "Yellow");
 
-        contentPage.checkCartCounter();
-        softAssertions.assertThat(contentPage.getItemQtyInCart()).isEqualTo("1");
+        mainPage.checkCartCounter();
+        softAssertions.assertThat(mainPage.getItemQtyInCart()).isEqualTo("1");
 
-        contentPage.clickShowCartButton();
-        contentPage.checkMiniCartOpened();
-        contentPage.clickDeleteButton();
-        contentPage.confirmationMessageAppears();
-        contentPage.clickOkButton();
-        contentPage.removeMessageAppears();
-        softAssertions.assertThat(contentPage.getItemQtyInCart()).isEqualTo("");
+        mainPage.clickShowCartButton();
+        mainPage.checkMiniCartOpened();
+        mainPage.clickDeleteButton();
+        mainPage.confirmationMessageAppears();
+        mainPage.clickOkButton();
+        mainPage.removeMessageAppears();
+        softAssertions.assertThat(mainPage.getItemQtyInCart()).isEqualTo("");
 
-        loginPage.logOut();
+        mainPage.logOut();
     }
 
     @Test
     void SecondFlow() {
         SoftAssertions softAssertions = new SoftAssertions();
-        mainPage.Open();
-        mainPage.ClickLoginButton();
+        mainPage.open();
+        mainPage.clickLoginButton();
         loginPage.loginAsUser(userInfo.getEmail(), userInfo.getPassword());
 
-        contentPage.clickNav();
-        contentPage.clickTopNav();
-        contentPage.clickStyleNav();
-        contentPage.clickRainCoat();
-        contentPage.openItemsListView();
-        contentPage.clickSortedMenu();
-        contentPage.selectFilterByPrice();
-        contentPage.addItemToCart(2, "S", "Red" );
+        mainPage.clickNav();
+        mainPage.clickTopNav();
+        mainPage.clickStyleNav();
+        mainPage.clickRainCoat();
+        mainPage.openItemsListView();
+        mainPage.clickSortedMenu();
+        mainPage.selectFilterByPrice();
+        mainPage.addItemToCart(2, "S", "Red" );
 
-        contentPage.checkCartCounter();
-        softAssertions.assertThat(contentPage.getItemQtyInCart()).isEqualTo("1");
+        mainPage.checkCartCounter();
+        softAssertions.assertThat(mainPage.getItemQtyInCart()).isEqualTo("1");
 
-        contentPage.clickShowCartButton();
-        contentPage.checkMiniCartOpened();
-        contentPage.clickDeleteButton();
-        contentPage.confirmationMessageAppears();
-        contentPage.clickOkButton();
-        contentPage.removeMessageAppears();
-        softAssertions.assertThat(contentPage.getItemQtyInCart()).isEqualTo("");
+        mainPage.clickShowCartButton();
+        mainPage.checkMiniCartOpened();
+        mainPage.clickDeleteButton();
+        mainPage.confirmationMessageAppears();
+        mainPage.clickOkButton();
+        mainPage.removeMessageAppears();
+        softAssertions.assertThat(mainPage.getItemQtyInCart()).isEqualTo("");
 
-        loginPage.logOut();
+        mainPage.logOut();
     }
 }

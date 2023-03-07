@@ -1,4 +1,4 @@
-package tests;
+package Utilities.UserInformation;
 
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
@@ -12,7 +12,7 @@ public class UserInformation {
     Object obj;
     {
         try {
-            obj = new JSONParser().parse(new FileReader("src/test/userInformation.json"));
+            obj = new JSONParser().parse(new FileReader("src/test/java/Utilities/userInformation/userInformation.json"));
         } catch (IOException e) {
             e.printStackTrace();
         } catch (ParseException e) {

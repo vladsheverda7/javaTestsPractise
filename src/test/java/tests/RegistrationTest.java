@@ -3,6 +3,7 @@ package tests;
 import Pages.CustomerInfoPage;
 import Pages.RegistrationPage;
 
+import Utilities.UserInformation.UserInformation;
 import com.codeborne.selenide.Configuration;
 
 import org.junit.jupiter.api.Assertions;
@@ -22,7 +23,7 @@ public class RegistrationTest {
 
     @Test
     void RegistrationFlow() {
-        registrationPage.Open();
+        registrationPage.open();
 
         registrationPage.enterFirstName(userInfo.getFirstName());
         registrationPage.enterLastName(userInfo.getLastName());
@@ -31,6 +32,6 @@ public class RegistrationTest {
         registrationPage.enterPasswordConfirmation(userInfo.getPassword());
 
         CustomerInfoPage customerInfo = registrationPage.OpenCustomerAccount();
-        Assertions.assertEquals(customerInfo.getPageTitle(), "My Account");
+        Assertions.assertEquals("My Account", customerInfo.getPageTitle());
     }
 }

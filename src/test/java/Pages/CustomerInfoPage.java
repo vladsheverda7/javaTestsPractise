@@ -3,6 +3,7 @@ package Pages;
 import com.codeborne.selenide.SelenideElement;
 import org.openqa.selenium.By;
 
+import static com.codeborne.selenide.Condition.visible;
 import static com.codeborne.selenide.Selenide.$;
 
 public class CustomerInfoPage extends  BasePage {
@@ -13,6 +14,7 @@ public class CustomerInfoPage extends  BasePage {
     }
 
     public String getPageTitle() {
+        pageTitle.shouldBe(visible);
         return pageTitle.text();
     }
 }
