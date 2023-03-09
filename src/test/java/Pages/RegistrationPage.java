@@ -18,10 +18,7 @@ public class RegistrationPage extends BasePage {
         super(pageUrl);
     }
 
-    public void enterFirstName(String firstName) {
-        firstNameField.shouldBe(visible);
-        firstNameField.setValue(firstName);
-    }
+    public void enterFirstName(String firstName) { firstNameField.setValue(firstName); }
 
     public void enterLastName(String lastName) {
         lastNameField.setValue(lastName);

@@ -21,7 +21,6 @@ public class SelectorPractise {
     @BeforeAll
     static void beforeAll() {
         Configuration.browserSize = "1920x1080";
-        Configuration.holdBrowserOpen = true;
     }
 
     @Story("Practise with selectors")
