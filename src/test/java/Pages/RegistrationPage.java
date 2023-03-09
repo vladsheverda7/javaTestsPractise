@@ -3,6 +3,7 @@ package Pages;
 import com.codeborne.selenide.SelenideElement;
 import org.openqa.selenium.By;
 
+import static com.codeborne.selenide.Condition.visible;
 import static com.codeborne.selenide.Selenide.$;
 
 public class RegistrationPage extends BasePage {
@@ -18,6 +19,7 @@ public class RegistrationPage extends BasePage {
     }
 
     public void enterFirstName(String firstName) {
+        firstNameField.shouldBe(visible);
         firstNameField.setValue(firstName);
     }
 
