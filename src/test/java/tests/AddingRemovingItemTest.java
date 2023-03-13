@@ -5,7 +5,6 @@ import Pages.MainPage;
 import Utilities.UserInformation.UserInformation;
 import com.codeborne.selenide.Configuration;
 
-import com.codeborne.selenide.Selenide;
 import io.qameta.allure.Severity;
 import io.qameta.allure.SeverityLevel;
 import io.qameta.allure.Story;
