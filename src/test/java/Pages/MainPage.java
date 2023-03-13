@@ -85,9 +85,25 @@ public class MainPage extends BasePage {
 
     public void removeMessageAppears() {modalRemovingConfirmation.shouldHave(text(noItems));}
 
-    public void addItemToCart(int itemNumber,  String size, String color){
-        $(By.xpath(("//ol[@class='products list items product-items']/li" + "[" + itemNumber +"]" + "//div[text() = '" + size + "']"))).click();
-        $(By.xpath(("//ol[@class='products list items product-items']/li" + "[" + itemNumber +"]" + "//div[@aria-label='Color']/div[@option-label='" + color + "']"))).click();
-        $(By.xpath(("//ol[@class='products list items product-items']/li" + "[" + itemNumber +"]" + "//button[@title='Add to Cart']"))).click();
+    private int defaultItemNumber = 0;
+    private String defaultSize = "M";
+    private String defaultColor = "Red";
+
+    private String selectItemSizeLocatorTemplate = "//ol[@class='products list items product-items']/li" + "[" + defaultItemNumber +"]" + "//div[text() = '" + defaultSize + "']";
+    private String selectColorItemColorLocatorTemplate = "//ol[@class='products list items product-items']/li" + "[" + defaultItemNumber +"]" + "//div[@aria-label='Color']/div[@option-label='" + defaultColor + "']";
+    private String addToCartLocatorTemplate = "//ol[@class='products list items product-items']/li[" + defaultItemNumber +"]//button[@title='Add to Cart']";
+
+    public void addToCart(int itemToReplace, String size, String color){
+        String newCartLocator = addToCartLocatorTemplate.replace(Integer.toString(defaultItemNumber), Integer.toString(itemToReplace));
+
+        String newSizeLocator = selectItemSizeLocatorTemplate.replace(defaultSize, size);
+        String newItemSizeLocator = newSizeLocator.replace(Integer.toString(defaultItemNumber), Integer.toString(itemToReplace));
+
+        String newColorLocator = selectColorItemColorLocatorTemplate.replace(defaultColor, color);
+        String newItemColorLocator = newColorLocator.replace(Integer.toString(defaultItemNumber), Integer.toString(itemToReplace));
+
+        getElement(newItemSizeLocator).click();
+        getElement(newItemColorLocator).click();
+        getElement(newCartLocator).click();
     }
 }

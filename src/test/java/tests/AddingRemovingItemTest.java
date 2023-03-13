@@ -5,6 +5,7 @@ import Pages.MainPage;
 import Utilities.UserInformation.UserInformation;
 import com.codeborne.selenide.Configuration;
 
+import com.codeborne.selenide.Selenide;
 import io.qameta.allure.Severity;
 import io.qameta.allure.SeverityLevel;
 import io.qameta.allure.Story;
@@ -66,7 +67,7 @@ public class AddingRemovingItemTest {
         logger.warning("Filtering item list");
         mainPage.selectFilterByPrice();
         logger.warning("Adding first item to the cart");
-        mainPage.addItemToCart(1,"M", "Yellow");
+        mainPage.addToCart(1,"M", "Yellow");
 
         logger.warning("Checking cart count");
         mainPage.checkCartCounter();
@@ -107,7 +108,7 @@ public class AddingRemovingItemTest {
         mainPage.openItemsListView();
         mainPage.clickSortedMenu();
         mainPage.selectFilterByPrice();
-        mainPage.addItemToCart(2, "S", "Red" );
+        mainPage.addToCart(2, "S", "Red" );
 
         mainPage.checkCartCounter();
         softAssertions.assertThat(mainPage.getItemQtyInCart()).isEqualTo("1");
@@ -121,5 +122,31 @@ public class AddingRemovingItemTest {
         softAssertions.assertThat(mainPage.getItemQtyInCart()).isEqualTo("");
 
         mainPage.logOut();
+    }
+
+    @Test
+    void thirdFlow() {
+        SoftAssertions softAssertions = new SoftAssertions();
+        mainPage.open();
+
+        mainPage.clickNav();
+        mainPage.clickTopNav();
+        mainPage.clickStyleNav();
+        mainPage.clickRainCoat();
+        mainPage.openItemsListView();
+        mainPage.clickSortedMenu();
+        mainPage.selectFilterByPrice();
+        mainPage.addToCart(2, "S", "Red" );
+
+        mainPage.checkCartCounter();
+        softAssertions.assertThat(mainPage.getItemQtyInCart()).isEqualTo("1");
+
+        mainPage.clickShowCartButton();
+        mainPage.checkMiniCartOpened();
+        mainPage.clickDeleteButton();
+        mainPage.confirmationMessageAppears();
+        mainPage.clickOkButton();
+        mainPage.removeMessageAppears();
+        softAssertions.assertThat(mainPage.getItemQtyInCart()).isEqualTo("");
     }
 }
