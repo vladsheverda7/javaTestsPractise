@@ -11,7 +11,6 @@ import static com.codeborne.selenide.Condition.visible;
 
 public class LandingPage {
     private NavigationBar navigationBar = new NavigationBar();
-
     private BaseElement dropdownIcon = new BaseElement(By.xpath("//span[contains(@class,'ui-menu-icon')]"));
     private SideBar sideBar = new SideBar();
 
@@ -31,7 +30,7 @@ public class LandingPage {
 
     public void selectMenPants() {
         navigationBar.selectMenNavigationMenuItem();
-        sideBar.selectPants();
+        sideBar.selectPantsCategory();
     }
 
     public void selectWomenTees(){

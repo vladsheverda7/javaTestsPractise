@@ -24,7 +24,7 @@ public class ProductAddingTest {
     void AddFirstMenJacket(){
         landingPage.open();
         landingPage.selectMenJackets();
-        productPage.selectProduct(1, "M");
+        productPage.selectProductSize(1, "M");
         productPage.selectColor(1,"Blue");
         productPage.clickAddToCartButton(1);
 
@@ -35,7 +35,7 @@ public class ProductAddingTest {
     void AddSecondWomenTees(){
         landingPage.open();
         landingPage.selectWomenTees();
-        productPage.selectProduct(2, "M");
+        productPage.selectProductSize(2, "M");
         productPage.selectColor(2,"Yellow");
         productPage.clickAddToCartButton(2);
 
@@ -46,7 +46,7 @@ public class ProductAddingTest {
     void AddThirdMenPants(){
         landingPage.open();
         landingPage.selectMenPants();
-        productPage.selectProduct(3, "34");
+        productPage.selectProductSize(3, "34");
         productPage.selectColor(3,"Green");
         productPage.clickAddToCartButton(3);
 

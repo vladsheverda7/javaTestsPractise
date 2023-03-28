@@ -14,7 +14,7 @@ public class SideBar {
         jacket.click();
     }
 
-    public void selectPants() {
+    public void selectPantsCategory() {
         pants.click();
     }
 

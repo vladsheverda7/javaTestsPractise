@@ -6,7 +6,7 @@ public class ProductPage {
 
     private Product product = new Product();
 
-    public void selectProduct(int productId, String productSize){
+    public void selectProductSize(int productId, String productSize){
         product.selectSize(productId, productSize);
     }
 
