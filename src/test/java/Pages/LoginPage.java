@@ -13,7 +13,6 @@ public class LoginPage extends  BasePage  {
     private SelenideElement passwordField = $("[id=pass]");
     private SelenideElement signInButton = $("[id=send2]");
 
-
     public void loginAsUser(String username, String password) {
         emailField.setValue(username);
         passwordField.setValue(password);

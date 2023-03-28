@@ -11,8 +11,8 @@ repositories {
 }
 dependencies {
     testImplementation(
-            "com.codeborne:selenide:6.9.0",
-            "org.junit.jupiter:junit-jupiter:5.9.0",
+            'com.codeborne:selenide:6.12.3',
+            'org.junit.jupiter:junit-jupiter:5.9.2',
             "org.assertj:assertj-core:3.21.0",
             "io.qameta.allure:allure-junit5:2.21.0",
             "ru.yandex.qatools.allure:allure-java-annotations:1.5.4"
