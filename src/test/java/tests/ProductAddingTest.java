@@ -1,24 +1,16 @@
 package tests;
 
-import com.codeborne.selenide.Configuration;
 import org.junit.jupiter.api.Assertions;
-import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 import pageObject.components.Cart;
 import pageObject.pages.LandingPage;
 import pageObject.pages.ProductPage;
 
-public class ProductAddingTest {
+public class ProductAddingTest extends BaseTest {
 
     LandingPage landingPage = new LandingPage();
     ProductPage productPage = new ProductPage();
     Cart cart = new Cart();
-
-    @BeforeAll
-    static void beforeAll() {
-        Configuration.browserSize = "1920x1080";
-        Configuration.holdBrowserOpen = true;
-    }
 
     @Test
     void AddFirstMenJacket(){

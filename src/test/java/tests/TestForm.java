@@ -1,11 +1,8 @@
 package tests;
 
-import com.codeborne.selenide.Configuration;
-
 import io.qameta.allure.Severity;
 import io.qameta.allure.SeverityLevel;
 import io.qameta.allure.Story;
-import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 
 import java.io.File;
@@ -15,7 +12,7 @@ import static com.codeborne.selenide.Selectors.byText;
 import static com.codeborne.selenide.Selenide.*;
 import static com.codeborne.selenide.Selenide.open;
 
-public class TestForm {
+public class TestForm extends BaseTest {
 
     String firstName = "James";
     String lastName = "Bond";
@@ -37,17 +34,11 @@ public class TestForm {
     String city = "Jaiselmer";
 
 
-    @BeforeAll
-    static void beforeAll() {
-        Configuration.baseUrl = "https://demoqa.com";
-        Configuration.browserSize = "1920x1080";
-    }
-
     @Story("Test Form filling")
     @Severity(SeverityLevel.MINOR)
     @Test
     void studentRegistration() {
-        open("/automation-practice-form");
+        open("https://demoqa.com/automation-practice-form");
         executeJavaScript("$('footer').remove()");
         executeJavaScript("$('#fixedban').remove()");
 

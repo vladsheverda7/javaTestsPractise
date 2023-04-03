@@ -4,25 +4,18 @@ import Pages.CustomerInfoPage;
 import Pages.RegistrationPage;
 
 import Utilities.UserInformation.UserInformation;
-import com.codeborne.selenide.Configuration;
 
 import io.qameta.allure.Severity;
 import io.qameta.allure.SeverityLevel;
 import io.qameta.allure.Story;
 import org.junit.jupiter.api.Assertions;
-import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 
 
-public class RegistrationTest {
+public class RegistrationTest extends BaseTest {
 
     RegistrationPage registrationPage = new RegistrationPage("https://magento.softwaretestingboard.com/customer/account/create/");
     UserInformation userInfo = new UserInformation();
-
-    @BeforeAll
-    static void beforeAll() {
-        Configuration.browserSize = "1920x1080";
-    }
 
     @Story("Check user registration")
     @Severity(SeverityLevel.NORMAL)

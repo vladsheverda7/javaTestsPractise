@@ -3,7 +3,6 @@ package tests;
 import Pages.LoginPage;
 import Pages.MainPage;
 import Utilities.UserInformation.UserInformation;
-import com.codeborne.selenide.Configuration;
 
 import io.qameta.allure.Severity;
 import io.qameta.allure.SeverityLevel;
@@ -17,16 +16,12 @@ import java.io.IOException;
 import java.util.logging.LogManager;
 import java.util.logging.Logger;
 
-public class AddingRemovingItemTest {
+public class AddingRemovingItemTest extends BaseTest {
 
     LoginPage loginPage = new LoginPage("https://magento.softwaretestingboard.com/customer/account/login");
     MainPage mainPage = new MainPage("https://magento.softwaretestingboard.com/");
     UserInformation userInfo = new UserInformation();
 
-    @BeforeAll
-    static void beforeAll() {
-        Configuration.browserSize = "1920x1080";
-    }
 
     @Story("Check adding/removal first item to cart")
     @Severity(SeverityLevel.CRITICAL)

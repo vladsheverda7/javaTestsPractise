@@ -15,7 +15,8 @@ dependencies {
             'org.junit.jupiter:junit-jupiter:5.9.2',
             "org.assertj:assertj-core:3.21.0",
             "io.qameta.allure:allure-junit5:2.21.0",
-            "ru.yandex.qatools.allure:allure-java-annotations:1.5.4"
+            "ru.yandex.qatools.allure:allure-java-annotations:1.5.4",
+            'org.seleniumhq.selenium:selenium-java:4.8.1'
     )
 
     implementation(
@@ -23,6 +24,17 @@ dependencies {
             "io.qameta.allure:allure-selenide:2.21.0",
             "io.qameta.allure:allure-okhttp3:2.21.0"
     )
+}
+
+task myTest(type: Test) {
+    maxParallelForks = 3 // Maximum number of parallel forks
+    forkEvery = 1 // Run each test method in a separate fork
+
+    systemProperty "selenide.browser", "chrome" // Set the browser to use
+
+    include "tests/ProductAddingTest.class" // Include the test class
+
+    // Other test options, if needed
 }
 
 tasks.withType(Test) {

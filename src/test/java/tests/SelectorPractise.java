@@ -1,11 +1,8 @@
 package tests;
 
-import com.codeborne.selenide.Configuration;
-
 import io.qameta.allure.Severity;
 import io.qameta.allure.SeverityLevel;
 import io.qameta.allure.Story;
-import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 import org.openqa.selenium.By;
 
@@ -13,15 +10,10 @@ import static com.codeborne.selenide.Condition.*;
 import static com.codeborne.selenide.Selenide.*;
 import static com.codeborne.selenide.Selenide.open;
 
-public class SelectorPractise {
+public class SelectorPractise extends BaseTest {
 
     String noItems = "You have no items in your shopping cart";
     String areYouSureQuestion = "Are you sure you would like to remove this item from the shopping cart?";
-
-    @BeforeAll
-    static void beforeAll() {
-        Configuration.browserSize = "1920x1080";
-    }
 
     @Story("Practise with selectors")
     @Severity(SeverityLevel.NORMAL)
