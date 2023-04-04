@@ -29,6 +29,7 @@ dependencies {
 task myTest(type: Test) {
     maxParallelForks = 3 // Maximum number of parallel forks
     forkEvery = 1 // Run each test method in a separate fork
+
     // Include the test class
     include "tests/ProductAddingTest.class"
     include "tests/RegistrationTest.class"
