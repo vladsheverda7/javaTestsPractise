@@ -29,13 +29,12 @@ dependencies {
 task myTest(type: Test) {
     maxParallelForks = 3 // Maximum number of parallel forks
     forkEvery = 1 // Run each test method in a separate fork
-
-    systemProperty "selenide.browser", "chrome" // Set the browser to use
-
-    include "tests/ProductAddingTest.class" // Include the test class
-
-    // Other test options, if needed
+    // Include the test class
+    include "tests/ProductAddingTest.class"
+    include "tests/RegistrationTest.class"
+    include "tests/SelectorPractise.class"
 }
+
 
 tasks.withType(Test) {
     useJUnitPlatform()

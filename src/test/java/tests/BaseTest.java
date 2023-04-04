@@ -21,5 +21,4 @@ public class BaseTest {
         clearBrowserCookies();
         clearBrowserLocalStorage();
     }
-
 }
