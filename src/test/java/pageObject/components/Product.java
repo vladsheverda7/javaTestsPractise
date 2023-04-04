@@ -5,15 +5,18 @@ import org.openqa.selenium.By;
 
 public class Product {
     private BaseElement getProductSize(int id, String size){
-        return new BaseElement(By.xpath(String.format("//li[@class='item product product-item'][%d]//div[text() = '%s']",id,size)));
+        return new BaseElement(By.xpath(String.format("//li[@class='item product product-item'][%d]//div[text() = '%s']",id,size)),
+                "product size");
     }
 
     private BaseElement getProductColor(int id, String color){
-        return new BaseElement(By.xpath(String.format("//li[@class='item product product-item'][%d]//div[@aria-label='Color']/div[@option-label='%s']",id,color)));
+        return new BaseElement(By.xpath(String.format("//li[@class='item product product-item'][%d]//div[@aria-label='Color']/div[@option-label='%s']",id,color)),
+                "product color");
     }
 
     private BaseElement getAddToCartButton(int id){
-        return new BaseElement(By.xpath(String.format("//ol[@class='products list items product-items']/li[%d]//button[@title='Add to Cart']",id)));
+        return new BaseElement(By.xpath(String.format("//ol[@class='products list items product-items']/li[%d]//button[@title='Add to Cart']",id)),
+                "add to cart button");
     }
 
     public void selectSize(int productId, String productSize){
